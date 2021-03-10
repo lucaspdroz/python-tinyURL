@@ -4,6 +4,10 @@ import pyqrcode
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def ops():
+    return jsonify(response="ops... can you try send me an body.json() with input_url as key of your input")
+
 @app.route('/qr-generator', methods=['GET', 'POST'])
 def question():
     shortener = pyshorteners.Shortener()
