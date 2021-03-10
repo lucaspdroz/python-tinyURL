@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def ops():
-    return jsonify(response="ops!... can you try send me an json request with input_url as key of your input")
+    return jsonify(response="ops!... can you try send me an json request with input_url as key of your input", for_admin="with all of our ❤ #NeverStopLarning")
 
 @app.route('/qr-generator', methods=['GET', 'POST'])
 def question():
