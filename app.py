@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def ops():
-    return jsonify(response="ops!... can you try send me an json request with input_url as key of your input", for_admin="with all of our ❤ #NeverStopLarning")
+    
+    return jsonify(response="ops!... can you try send me an json request with input_url as key of your input", for_admin="with all of our ❤ #NeverStopLarning", status=400)
 
 @app.route('/qr-generator', methods=['GET', 'POST'])
 def question():
@@ -21,7 +22,7 @@ def question():
             tiny_url = shortener.tinyurl.short(input_url)
             # qr_code = pyqrcode.create(tiny_link)
         
-    return jsonify(old_url=input_url,tiny_link=tiny_url)
+    return jsonify(old_url=input_url,tiny_link=tiny_url,status=200)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
