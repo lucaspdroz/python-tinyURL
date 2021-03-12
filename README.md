@@ -12,3 +12,7 @@
 
 `python .\app.py`
 
+## utility:
+
+In case of dependency addition use:
+ `pip3 freeze > requirements.txt`
