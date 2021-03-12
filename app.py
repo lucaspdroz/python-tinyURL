@@ -7,11 +7,6 @@ import segno
 app = Flask(__name__)
 CORS(app)
 
-def QR_code_gen(tiny_url_to_qr_code):
-    qr = segno.make(tiny_url_to_qr_code)
-    buff = io.BytesIO()
-    return qr.save(buff, kind='svg')
-
 
 @app.route('/', methods=['GET'])
 def ops():
@@ -28,7 +23,7 @@ def question():
             input_url= render_template_string(raw_url)
             tiny_url = shortener.tinyurl.short(input_url)
 
-    return jsonify(old_url=input_url,tiny_url=tiny_url, qr_code=QR_code_gen(tiny_url), status=200)
+    return jsonify(old_url=input_url,tiny_url=tiny_url, status=200)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
